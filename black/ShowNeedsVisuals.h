@@ -72,7 +72,7 @@ public:
     // win1.41 0055dd90 mac 10144a20 ShowNeedsVisuals::GetText(void)
     virtual const char* GetText();
     // win1.41 0055dd60 mac 101448f0 ShowNeedsVisuals::GetMesh( const(void))
-    virtual int GetMesh();
+    virtual int GetMesh() const;
     // win1.41 00719e00 mac 10145510 ShowNeedsVisuals::CallVirtualFunctionsForCreation(const MapCoords &)
     virtual void CallVirtualFunctionsForCreation(const MapCoords* coords);
     // win1.41 0055dda0 mac 10144a60 ShowNeedsVisuals::SaveObject(LHOSFile &, MapCoords const &)

@@ -104,7 +104,7 @@ public:
     // win1.41 007265c0 mac 10524740 SpellIcon::Process(void)
     virtual uint32_t Process();
     // win1.41 0055d440 mac 10525f70 SpellIcon::GetMesh( const(void))
-    virtual int GetMesh();
+    virtual int GetMesh() const;
     // win1.41 00519650 mac 100c77b0 SpellIcon::Draw(void)
     virtual void Draw();
     // win1.41 00726160 mac 105253c0 SpellIcon::CallVirtualFunctionsForCreation(const MapCoords &)

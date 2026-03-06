@@ -13,7 +13,25 @@
 #include "Mobile.h" /* For struct Mobile, struct MobileVftable */
 #include "Object.h" /* For struct Object */
 
+enum MOVE_TO_STATES
+{
+  MOVE_TO_STATES_ARRIVED = 0x1,
+  MOVE_TO_STATES_FINAL_STEP = 0x4,
+  MOVE_TO_STATES_STEP_THROUGH = 0xb,
+  MOVE_TO_STATES_LINEAR = 0xc,
+  MOVE_TO_STATES_LINEAR_CW = 0xd,
+  MOVE_TO_STATES_LINEAR_CCW = 0xe,
+  MOVE_TO_STATES_ORBIT_CW = 0xf,
+  MOVE_TO_STATES_ORBIT_CCW = 0x10,
+  MOVE_TO_STATES_EXIT_CIRCLE_CCW = 0x11,
+  MOVE_TO_STATES_EXIT_CIRCLE_CW = 0x12,
+  _MOVE_TO_STATES_COUNT = 0x13
+};
+
 #ifdef __cplusplus
+
+#include <map>
+#include <set>
 
 // Forward Declares
 
@@ -27,6 +45,13 @@ struct GameThingWithPosVftable;
 struct LHPoint;
 struct ObjectVftable;
 struct Q210NewCollide3Obj;
+
+struct GMoveBy
+{
+  int x;  /* 0x0 */
+  float altitude;
+  int z;
+};
 
 // win1.41 009c8dc8 mac inlined MobileWallHug::`RTTI Type Descriptor'
 // win1.41 009a6c00 mac inlined MobileWallHug::`RTTI Base Class Descriptor'
@@ -107,13 +132,13 @@ struct SubCollideBlockPos
 
 struct CircleHugStateInfoT
 {
-    std__map__pMobileWallHug__ulong field_0x0;
-    std__map__pQ210NewCollide3Obj__std__set__pMobileWallHug obj_to_mwh; /* 0x10 */
-    std__set__pMobileWallHug field_0x20;
-    std__set__pMobileWallHug field_0x30;
+    std::map<MobileWallHug*, unsigned long> field_0x0;
+    std::map<NewCollide::Obj*, std::set<MobileWallHug*>*> obj_to_mwh; /* 0x10 */
+    std::set<MobileWallHug*> field_0x20;
+    std::set<MobileWallHug*> field_0x30;
     bool field_0x40;
     uint8_t field_0x41[0x3];
-    std__map__SubCollideBlockPosPNewCollide3Obj field_0x44;
+    std::map<SubCollideBlockPos, NewCollide::Obj*> field_0x44;
 
     // Non-virtual methods
 
@@ -152,20 +177,6 @@ struct MobileWallHug;
 struct ObjectVftable;
 struct Q210NewCollide3Obj;
 
-enum MOVE_TO_STATES
-{
-  MOVE_TO_STATES_ARRIVED = 0x1,
-  MOVE_TO_STATES_FINAL_STEP = 0x4,
-  MOVE_TO_STATES_STEP_THROUGH = 0xb,
-  MOVE_TO_STATES_LINEAR = 0xc,
-  MOVE_TO_STATES_LINEAR_CW = 0xd,
-  MOVE_TO_STATES_LINEAR_CCW = 0xe,
-  MOVE_TO_STATES_ORBIT_CW = 0xf,
-  MOVE_TO_STATES_ORBIT_CCW = 0x10,
-  MOVE_TO_STATES_EXIT_CIRCLE_CCW = 0x11,
-  MOVE_TO_STATES_EXIT_CIRCLE_CW = 0x12,
-  _MOVE_TO_STATES_COUNT = 0x13
-};
 static_assert(sizeof(enum MOVE_TO_STATES) == 0x4, "Data type is of wrong size");
 
 static const char* MOVE_TO_STATES_strs[_MOVE_TO_STATES_COUNT] = {

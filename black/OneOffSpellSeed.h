@@ -78,7 +78,7 @@ public:
     // win1.41 0072acb0 mac 105264c0 OneOffSpellSeed::GetQueryLastEnumText(void)
     virtual HELP_TEXT GetQueryLastEnumText();
     // win1.41 0072a910 mac 10526db0 OneOffSpellSeed::GetMesh( const(void))
-    virtual int GetMesh();
+    virtual int GetMesh() const;
     // win1.41 00518e90 mac 100c7fc0 OneOffSpellSeed::Draw(void)
     virtual void Draw();
     // win1.41 00518c50 mac 100c8340 OneOffSpellSeed::DrawOutOfMap(bool)

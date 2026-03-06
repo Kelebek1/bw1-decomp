@@ -121,7 +121,7 @@ public:
     // win1.41 0077b1d0 mac 105b2440 WorshipSite::Process(void)
     virtual uint32_t Process();
     // win1.41 0055dcc0 mac 105b3f70 WorshipSite::GetMesh( const(void))
-    virtual int GetMesh();
+    virtual int GetMesh() const;
     // win1.41 005193d0 mac 100c7a80 WorshipSite::Draw(void)
     virtual void Draw();
     // win1.41 0077de70 mac 105ac230 WorshipSite::GetDiscipleStateIfInteractedWith(GInterfaceStatus *, Villager *)

@@ -44,6 +44,12 @@ class PhysicsObject;
 class Reaction;
 struct ReactionDoneWhen;
 
+enum STATE_TYPE
+{
+  STATE_TYPE_0 = 0x0,
+  _STATE_TYPE_COUNT = 0x1
+};
+
 struct LivingMapCell
 {
     uint8_t field_0x0;
@@ -115,6 +121,40 @@ public:
 class Living: public MobileWallHug
 {
 public:
+    struct StateTableSubEntry
+    {
+        bool (* StateTableSubEntry::function)();  /* 0x0 */
+        uint32_t field_0x4;
+        uint32_t field_0x8;
+        int32_t field_0xc;
+    };
+    struct StateTableSubEntryState
+    {
+        bool (* StateTableSubEntryState::function)();  /* 0x0 */
+        uint32_t field_0x4;
+        uint32_t field_0x8;
+        int32_t field_0xc;
+    };
+    struct StateTableSubEntryEntryState
+    {
+        bool (* StateTableSubEntryEntryState::function)(enum VILLAGER_STATES param_1, enum VILLAGER_STATES param_2);  /* 0x0 */
+        uint32_t field_0x4;
+        uint32_t field_0x8;
+        int32_t field_0xc;
+    };
+    struct StateTableEntry
+    {
+        StateTableSubEntryState state;  /* 0x0 */
+        StateTableSubEntryEntryState entry_state;  /* 0x10 */
+        StateTableSubEntry exit_state;  /* 0x20 */
+        StateTableSubEntry save_state;  /* 0x30 */
+        StateTableSubEntry load_state;  /* 0x40 */
+        StateTableSubEntry field_0x50;
+        StateTableSubEntry field_0x60;
+        StateTableSubEntry transition_animation;  /* 0x70 */
+        StateTableSubEntry validate;  /* 0x80 */
+    };
+
     LivingAction action; /* 0x8c */
     Reaction* reaction; /* 0x94 */
     ReactionDoneWhen* reaction_done_when;

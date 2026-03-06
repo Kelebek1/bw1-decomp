@@ -103,7 +103,7 @@ public:
     // win1.41 00737f40 mac 10077f00 TotemStatue::Process(void)
     virtual uint32_t Process();
     // win1.41 005610e0 mac 10543c30 TotemStatue::GetMesh( const(void))
-    virtual int GetMesh();
+    virtual int GetMesh() const;
     // win1.41 00738960 mac 10024bb0 TotemStatue::Draw(void)
     virtual void Draw();
     // win1.41 00737d60 mac 10544f40 TotemStatue::CallVirtualFunctionsForCreation(MapCoords const &)

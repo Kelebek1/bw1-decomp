@@ -83,7 +83,7 @@ public:
     // win1.41 007807c0 mac 105b7650 WorshipTotem::GetSpecularColor(void)
     virtual LH3DColor GetSpecularColor();
     // win1.41 00780a70 mac 105b83a0 WorshipTotem::GetMesh( const(void))
-    virtual int GetMesh();
+    virtual int GetMesh() const;
     // win1.41 00519360 mac 100c7bd0 WorshipTotem::Draw(void)
     virtual void Draw();
     // win1.41 00780ab0 mac 105b81d0 WorshipTotem::CallVirtualFunctionsForCreation(MapCoords const &)

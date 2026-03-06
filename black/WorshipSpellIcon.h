@@ -129,7 +129,7 @@ public:
     // win1.41 006709d0 mac inlined PrayerIcon::Process(void)
     virtual uint32_t Process();
     // win1.41 00670950 mac inlined PrayerIcon::GetMesh( const(void))
-    virtual int GetMesh();
+    virtual int GetMesh() const;
     // win1.41 006709f0 mac inlined PrayerIcon::Draw(void)
     virtual void Draw();
 };

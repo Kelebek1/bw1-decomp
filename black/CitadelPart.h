@@ -75,7 +75,7 @@ public:
     // win1.41 00469490 mac 101ba510 CitadelPart::Process(void)
     virtual uint32_t Process();
     // win1.41 00464a90 mac 101c2400 CitadelPart::GetMesh( const(void))
-    virtual int GetMesh();
+    virtual int GetMesh() const;
     // win1.41 00469760 mac 101c2b70 CitadelPart::CallVirtualFunctionsForCreation(MapCoords const &)
     virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
     // win1.41 004694b0 mac 101c3720 CitadelPart::Get3DType(void)

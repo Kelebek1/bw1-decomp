@@ -99,7 +99,7 @@ public:
     // win1.41 00417700 mac 1012eed0 Animal::ProcessBySpell(Spell *)
     virtual uint32_t ProcessBySpell(Spell* param_1);
     // win1.41 00417540 mac 1012e540 Animal::GetMesh( const(void))
-    virtual int GetMesh();
+    virtual int GetMesh() const;
     // win1.41 00417550 mac inlined Animal::GetDetailMesh(int)
     virtual int GetDetailMesh(int param_1);
     // win1.41 0051c310 mac 100419a0 Animal::Draw(void)

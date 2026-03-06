@@ -58,7 +58,7 @@ public:
     uint32_t field_0x94;
     Town* town;
     Abode* next;
-    LHListHead__Villager villagers; /* 0xa0 */
+    LHListHead<Villager> villagers; /* 0xa0 */
     Villager* male_female_villagers[0x2];
     uint32_t field_0xb0;
     uint8_t adult_count;

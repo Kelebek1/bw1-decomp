@@ -37,7 +37,7 @@ public:
     // win1.41 006438e0 mac inlined PFootball::GetPlayer(void)
     virtual GPlayer* GetPlayer();
     // win1.41 00643940 mac inlined PFootball::GetMesh( const(void))
-    virtual int GetMesh();
+    virtual int GetMesh() const;
     // win1.41 00643fd0 mac inlined PFootball::Draw(void)
     virtual void Draw();
     // win1.41 00644030 mac inlined PFootball::CallVirtualFunctionsForCreation(MapCoords const &)

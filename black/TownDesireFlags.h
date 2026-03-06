@@ -64,7 +64,7 @@ public:
     // win1.41 00746a20 mac 100550f0 TownDesireFlags::Process(void)
     virtual uint32_t Process();
     // win1.41 0055da80 mac 1055bf60 TownDesireFlags::GetMesh( const(void))
-    virtual int GetMesh();
+    virtual int GetMesh() const;
     // win1.41 00746a30 mac 100364a0 TownDesireFlags::Draw(void)
     virtual void Draw();
     // win1.41 00746dc0 mac 1055d830 TownDesireFlags::CallVirtualFunctionsForCreation(MapCoords const &)

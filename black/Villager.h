@@ -65,6 +65,11 @@ class Town;
 class Tree;
 class WorshipSite;
 
+struct SortedObject
+{
+  uint8_t field_0x0;
+};
+
 struct ClearAreaPoint
 {
     uint8_t field_0x0;
@@ -119,11 +124,11 @@ public:
     // Static methods
 
     // win1.41 inlined mac 1061e41c Villager::GetStateTable(void)
-    static Living__StateTableEntry* GetStateTable(VILLAGER_STATES state);
+    static Living::StateTableEntry* GetStateTable(VILLAGER_STATES state);
     // win1.41 0074fbe0 mac 10571750 Villager::Create(MapCoords const &, GVillagerInfo const *, unsigned long, int)
     static Villager* Create(MapCoords* coords, GVillagerInfo* info, uint32_t age, bool skeleton);
     // win1.41 00756990 mac inlined Villager::FUN_00756990(void)
-    static void FUN_00756990(MissionaryControl* this);
+    static void FUN_00756990(class MissionaryControl* param_1);
 
     // Constructors
 
@@ -464,7 +469,7 @@ public:
     // win1.41 00756e20 mac 10573130 Villager::GetDiscipleInteractState(void)
     uint32_t GetDiscipleInteractState();
     // win1.41 00756e80 mac 1002ae20 Villager::FindCloseObjectsForInteract(class LHOrderedLinkedList<class SortedObject> *, struct MapCoords const &)
-    bool32_t FindCloseObjectsForInteract(LHOrderedLinkedList__SortedObject* param_1, const MapCoords* param_2);
+    bool32_t FindCloseObjectsForInteract(LHOrderedLinkedList<SortedObject>* param_1, const MapCoords* param_2);
     // win1.41 00757180 mac 10572de0 Villager::CheckMoveHouse(Object *)
     bool32_t CheckMoveHouse(Object* object);
     // win1.41 00757210 mac 10572cf0 Villager::CheckMoveIntoTown(Town &)
@@ -1304,7 +1309,7 @@ public:
     // win1.41 0076b590 mac 10598c80 Villager::GoAndChilloutInTown(void)
     bool32_t GoAndChilloutInTown();
     // win1.41 0076b610 mac 100118e0 Villager::GetMeToMyChillOutPos(int (Villager::)(void const *, void* , MapCoords &), MapCoords &, float, MapCoords const &)
-    void GetMeToMyChillOutPos(int (__fastcall*)(const Villager *, const void *, MapCoords *) callback, const void* unused_1, const void* unused_2, const void* unused_3, MapCoords* param_5, float param_6, MapCoords* param_7);
+    void GetMeToMyChillOutPos(int (* callback)(MapCoords *), const void* unused_1, const void* unused_2, const void* unused_3, MapCoords* param_5, float param_6, MapCoords* param_7);
     // win1.41 0076b7e0 mac 10598b40 Villager::ArrivesHomeFromWorship(void)
     bool32_t ArrivesHomeFromWorship();
     // win1.41 0076b7f0 mac 10598ae0 Villager::SleepInTentFromWorship(void)
@@ -1443,8 +1448,8 @@ public:
 
     // Non-virtual Destructors
 
-    // win1.41 007567b0 mac inlined MissionaryControl::_dt(void)
-    ~MissionaryControl();
+    // // win1.41 007567b0 mac inlined MissionaryControl::_dt(void)
+    // ~MissionaryControl();
 
     // Non-virtual methods
 

@@ -8,13 +8,13 @@
 
 #include "GameThing.h" /* For struct GameThing */
 
-#ifdef __cplusplus
-
 enum DANCE_GROUP_ACTION_TYPE
 {
   DANCE_GROUP_ACTION_TYPE_0 = 0x0,
   _DANCE_GROUP_ACTION_TYPE_COUNT = 0x1
 };
+
+#ifdef __cplusplus
 
 // Forward Declares
 

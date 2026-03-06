@@ -114,7 +114,7 @@ public:
     // win1.41 00609230 mac 10097510 MobileStatic::GetHoldLoweringMultiplier(void)
     virtual float GetHoldLoweringMultiplier();
     // win1.41 00439680 mac 100b42d0 MobileStatic::GetMesh( const(void))
-    virtual int GetMesh();
+    virtual int GetMesh() const;
     // win1.41 00517f60 mac 10042f50 MobileStatic::Draw(void)
     virtual void Draw();
     // win1.41 00439670 mac 100b4280 MobileStatic::CanBePickedUp(void)

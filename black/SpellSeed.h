@@ -79,7 +79,7 @@ public:
     // win1.41 00727f60 mac 1052cc90 SpellSeed::HandShouldFeelWithMeshIntersect(void)
     virtual uint32_t HandShouldFeelWithMeshIntersect();
     // win1.41 00729850 mac 10529210 SpellSeed::GetMesh( const(void))
-    virtual int GetMesh();
+    virtual int GetMesh() const;
     // win1.41 00518710 mac 100c8c10 SpellSeed::Draw(void)
     virtual void Draw();
     // win1.41 005190a0 mac 100c7ef0 SpellSeed::DrawOutOfMap(bool)
