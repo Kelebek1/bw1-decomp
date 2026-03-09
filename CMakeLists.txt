@@ -20,8 +20,7 @@ FetchContent_Declare(
 # Get MSVC 6.0 SP5 from decomp.me for C++
 FetchContent_Declare(
   msvc_compiler
-  URL      https://github.com/OmniBlade/decomp.me/releases/download/msvcwin9x/msvc6.5.tar.gz
-  URL_HASH MD5=73e7cc13e078c56c7798c3f6686fbea4
+  URL      https://github.com/OmniBlade/decomp.me/releases/download/msvcwin9x/msvc6.4.tar.gz
 )
 # Get the MSVC 6.0 SP5 libs from decomp.me
 FetchContent_Declare(

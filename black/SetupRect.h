@@ -5,8 +5,8 @@
 
 struct SetupRect
 {
-    LHCoord p0;
-    LHCoord p1;
+    struct LHCoord p0;
+    struct LHCoord p1;
 };
 
 #endif /* BW1_DECOMP_SETUP_RECT_INCLUDED_H */

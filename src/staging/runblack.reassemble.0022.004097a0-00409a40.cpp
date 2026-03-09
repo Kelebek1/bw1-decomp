@@ -4,6 +4,7 @@
 #include "SetupThing.h"
 #include "SetupBox.h"
 #include "GatheringText.h"
+#include <stdlib.h>
 
 #define CLAMP(v, min, max) (v > min ? v < max ? v : max : min)
 
@@ -20,23 +21,23 @@ void SetupButton::Draw(bool hovered, bool selected)
 {
     SetupThing::DrawBevBox(rect.p0.x, rect.p0.y, rect.p1.x, rect.p1.y, (hovered ? 1 : 0) + 1, 16, -1, 0xFFFFFFFF);
 
-    int count;
+    int text_width;
     if (text_size == 0) {
         if (setup_box) {
-            count = setup_box->default_text_size;
+            text_width = setup_box->default_text_size;
         } else {
-            count = 10;
+            text_width = 10;
         }
     } else {
-        count = text_size;
+        text_width = text_size;
     }
 
-    while (count > 10) {
-        float width = SetupThing::GetTextWidth(label, count, 0, 1.0f);
+    while (text_width > 10) {
+        float width = SetupThing::GetTextWidth(label, text_width, 0, 1.0f);
         if (width <= rect.p1.x - rect.p0.x) {
             break;
         }
-        count--;
+        text_width--;
     }
 
     LH3DColor* colour;
@@ -49,11 +50,11 @@ void SetupButton::Draw(bool hovered, bool selected)
     }
 
     SetupThing::DrawText((rect.p0.x + rect.p1.x) / 2 + pressed * 2, 
-                         (rect.p1.y + rect.p0.y) / 2 - count / 2 + pressed * 2, 
+                         (rect.p0.y + rect.p1.y) / 2 - text_width / 2 + pressed * 2, 
                          rect.p1.x - rect.p0.x, 
                          TEXTJUSTIFY_CENTRE, 
                          label, 
-                         count, 
+                         text_width, 
                          colour,
                          0);
 }
@@ -93,31 +94,31 @@ SetupButton::~SetupButton()
 // win1.41 00409960 mac 10103d10 SetupSlider::KeyDown(int, int)
 void SetupSlider::KeyDown(LHKey key, LHKeyMod mod)
 {
-    bool r6 = false;
+    bool key_consumed = false;
 
     switch (key) {
         case LHKEY_HOME:
             value = 0.0f;
-            r6 = true;
+            key_consumed = true;
             break;
         case LHKEY_END:
             value = 1.0f;
-            r6 = true;
+            key_consumed = true;
             break;
         case LHKEY_LEFT:
             value -= 0.1f;
-            r6 = true;
+            key_consumed = true;
             break;
         case LHKEY_RIGHT:
             value += 0.1f;
-            r6 = true;
+            key_consumed = true;
             break;
     }
 
     value = CLAMP(value, 0.0f, 1.0f);
     drag_start_value = value;
 
-    if (r6) {
+    if (key_consumed) {
         if (setup_box->field_0xb0) {
             setup_box->field_0xb0(4, setup_box, this, 0, 0);
         }

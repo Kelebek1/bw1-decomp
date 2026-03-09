@@ -30,7 +30,7 @@ def configure_objdiff(validating: bool):
 
     scratch_details = {
         "platform": "win32",
-        "compiler": "msvc6.5",
+        "compiler": "msvc6.4",
         "preset_id": 208
     }
 
@@ -56,12 +56,12 @@ def configure_objdiff(validating: bool):
             file_dir = file_relative.parent
             units.append({
                 "name": (file_dir.relative_to("src/") / file.stem).as_posix(),
-                "target_path": output.as_posix(),
-                "base_path": output.as_posix(),
+                "target_path": output.relative_to(cmake_build_dir).as_posix(),
+                "base_path": output.relative_to(cmake_build_dir).as_posix(),
                 "scratch": scratch_details,
                 "metadata": {
                     "complete": True,
-                    "source_path": file.as_posix(),
+                    "source_path": file.relative_to(current_dir).as_posix(),
                 },
             })
         elif file.suffix == ".asm" or file.suffix == ".c":
@@ -81,12 +81,12 @@ def configure_objdiff(validating: bool):
             if base_path.exists():
                 units.append({
                     "name": (file_dir.relative_to("src/") / file.stem).as_posix(),
-                    "target_path": output.as_posix(),
+                    "target_path": output.relative_to(cmake_build_dir).as_posix(),
                     "base_path": base_path.relative_to(cmake_build_dir).as_posix(),
                     "scratch": scratch_details,
                     "metadata": {
                         # "complete": False,
-                        "source_path": (cpp_staging_dir / f"{file.stem}{source_suffix}").as_posix(),
+                        "source_path": (cpp_staging_dir.relative_to(current_dir) / f"{file.stem}{source_suffix}").as_posix(),
                     },
                 })
         else:
