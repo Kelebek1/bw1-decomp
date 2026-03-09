@@ -93,7 +93,7 @@ struct SetupThing
     // win1.41 00413360 mac 1013c530 SetupThing::DrawTab(int, int, int, int, int, int, int, wchar_t *, int, int)
     static void DrawTab(int x_min, int y_min, int x_max, int y_max, bool selected, bool first_in_row, bool last_in_row, const char16_t* label, LH3DColor color, bool no_blend);
     // win1.41 00413c20 mac 10594590 SetupThing::DrawBevBox(int, int, int, int, int, int, int, unsigned long)
-    static void DrawBevBox(int x_min, int y_min, int x_max, int y_max, uint32_t style, uint32_t outline_thickness, uint32_t horizontal_outline, LH3DColor color);
+    static void DrawBevBox(int x_min, int y_min, int x_max, int y_max, uint32_t style, uint32_t outline_thickness, uint32_t horizontal_outline, uint32_t color);
 };
 
 #else // __cplusplus

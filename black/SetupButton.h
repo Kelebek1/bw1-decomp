@@ -21,7 +21,7 @@
 class SetupButton: public SetupControl
 {
 public:
-    bool pressed; /* 0x23c */
+    int32_t pressed; /* 0x23c */
     int field_0x240;
 
     // Override methods
@@ -38,6 +38,7 @@ public:
     virtual ~SetupButton();
 
     // Constructors
+    SetupButton();
 
     // win1.41 004098b0 mac 103dd710 SetupButton::SetupButton(int, int, int, int, int, wchar_t *, int)
     SetupButton(int id, int x, int y, int width, int height, const char16_t* label, int param_8);

@@ -14,7 +14,7 @@ struct LH3DColor
     uint8_t a;
 
     // Constructors
-
+    LH3DColor() {}
     // win1.41 inlined mac 10083c40 LH3DColor::LH3DColor(uint)
     LH3DColor(uint32_t color);
     // win1.41 inlined mac 100530b0 LH3DColor::LH3DColor(LH3DColor const &)

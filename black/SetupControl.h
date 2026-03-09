@@ -68,6 +68,8 @@ public:
 
     // Constructors
 
+    SetupControl();
+
     // win1.41 00409250 mac 101668d0 SetupControl::SetupControl(int, int, int, int, int, wchar_t *)
     SetupControl(int id, int x, int y, int width, int height, const char16_t* label);
 

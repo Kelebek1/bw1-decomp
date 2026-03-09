@@ -36,7 +36,7 @@ void SetupThing::DrawTab(int x_min, int y_min, int x_max, int y_max, bool select
 }
 
 // win1.41 00413c20 mac 10594590 SetupThing::DrawBevBox(int, int, int, int, int, int, int, unsigned long)
-void SetupThing::DrawBevBox(int x_min, int y_min, int x_max, int y_max, uint32_t style, uint32_t outline_thickness, uint32_t horizontal_outline, LH3DColor color)
+void SetupThing::DrawBevBox(int x_min, int y_min, int x_max, int y_max, uint32_t style, uint32_t outline_thickness, uint32_t horizontal_outline, uint32_t color)
 {
 }
 
